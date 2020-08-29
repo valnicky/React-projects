@@ -1,0 +1,19 @@
+{
+  "name": "react-projects",
+  "version": "1.0.0",
+  "description": "Practicing with small projects in React",
+  "main": "filter&mapTogether.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valnicky/React-projects.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/valnicky/React-projects/issues"
+  },
+  "homepage": "https://github.com/valnicky/React-projects#readme"
+}
