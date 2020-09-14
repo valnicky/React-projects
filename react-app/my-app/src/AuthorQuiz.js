@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './App.css';
 import './bootstrap.min.css';
@@ -32,7 +33,7 @@ function Turn({author, books, highlight, onAnswerSelected}) {
                          < img src = {author.imageUrl} className = "authorimage" alt = "Author" / >
                      < /div> 
                     < div className = "col-6" > {books.map((title) => 
-                          < Book title = { title} key = {title} onClick={onAnswerSelected} / >)}
+                          < Book title = {title} key = {title} onClick={onAnswerSelected} / >)}
                     < / div> 
                 </div >);
 }
@@ -60,8 +61,9 @@ return (< div id = "footer" className = "row" > < div className = "col-12" > < p
 function AuthorQuiz({turnData, highlight, onAnswerSelected}) {
 return ( < div className = "container-fluid" > 
                     < Hero / > 
-                    < Turn {...turnData} highlighy = { highlight} onAnswerSelected = {onAnswerSelected} /> 
+                    < Turn {...turnData} highlight = { highlight} onAnswerSelected = {onAnswerSelected} /> 
                   <Continue/ >
+                  <p><Link to="/add"> Add an author </Link></p>
                  < Footer/>
             < /div>);
 }
