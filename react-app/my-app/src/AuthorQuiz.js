@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './App.css';
 import './bootstrap.min.css';
@@ -32,7 +33,7 @@ function Turn({author, books, highlight, onAnswerSelected}) {
                          < img src = {author.imageUrl} className = "authorimage" alt = "Author" / >
                      < /div> 
                     < div className = "col-6" > {books.map((title) => 
-                          < Book title = { title} key = {title} onClick={onAnswerSelected} / >)}
+                          < Book title = {title} key = {title} onClick={onAnswerSelected} / >)}
                     < / div> 
                 </div >);
 }
@@ -49,19 +50,24 @@ Turn.propTypes = {
     highlight: PropTypes.string.isRequired
 };
 
-function Continue() {
-return (< div / >);
+function Continue({ show, onContinue}) {
+return (<div div  className="row continue">
+{show ? <div className="col-11">
+<button className="btn btn-primary btn-lg float-right"></button>
+</div> : null}  
+</div >);
 }
 
 function Footer() {
 return (< div id = "footer" className = "row" > < div className = "col-12" > < p className = "text-muted credit" > All images are from < a href = "http://commons.wikimedia.org/wiki/" > Wikimedia Commons < /a> and are in the public domain</p > < /div> < /div >)
 }
 
-function AuthorQuiz({turnData, highlight, onAnswerSelected}) {
+function AuthorQuiz({turnData, highlight, onAnswerSelected, onContinue}) {
 return ( < div className = "container-fluid" > 
                     < Hero / > 
-                    < Turn {...turnData} highlighy = { highlight} onAnswerSelected = {onAnswerSelected} /> 
-                  <Continue/ >
+                    < Turn {...turnData} highlight = { highlight} onAnswerSelected = {onAnswerSelected} /> 
+                  <Continue show={highlight === 'correct'} onContinue ={onContinue}/>
+                  <p><Link to="/add"> Add an author </Link></p>
                  < Footer/>
             < /div>);
 }
